@@ -1,0 +1,44 @@
+<div fxLAyout="row">
+    <!--Spacer-->
+    <div fxFlex="10%"></div>
+    <!--Filtros-->
+
+    <div fxFlex="25%">
+
+        <div fxLayout="column" fxLayoutGap="8px">
+            <!-- Operando 2 -->
+            <mat-form-field color="primary" floatLabel="always" hintLabel="solo se admiten números" appearance="fill">
+                <mat-label>Operando 2</mat-label>
+                <input appOnlyNumbers matInput placeholder="ingrese un numero" formControlName="control1" required>
+            </mat-form-field>
+            <div fxFlex="0 0 15%" class=" box2" formControlName="control2" required>Box2</div>
+            <div fxFlex="1 0 15%" class=" box3" formControlName="control3" required>Box3</div>
+            <div fxFlex="0 0 15%" class=" box4" formControlName="control4" required>Box4</div>
+            <div fxLayout="row" fxLayoutGap="10px">
+
+                <button mat-raised-button color="primary" (click)="mostrarimg()">Primary</button>
+                <button mat-raised-button color="accent">Primary</button>
+            </div>
+        </div>
+    </div>
+    <!--Spacer-->
+
+    <div fxFlex="5%"></div>
+
+
+    <!--Grilla-->
+
+    <div fxFlex="50%">
+        <ng-container *ngIf="switchImagen imagen2">
+        <img visibled="" src="/assets/imagenes/buenosaires2018.jpg" />
+        <img src="/assets/imagenes/coffe.jpeg" />
+        </ng-container>
+
+        <ng-template #imagen2>
+            <img src="/assets/imagenes/coffe.jpeg" />
+        </ng-template>
+    </div>
+
+    <!--Spacer-->
+    <div fxFlex="10%"></div>
+</div>

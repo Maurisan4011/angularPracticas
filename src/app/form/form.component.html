@@ -1,0 +1,51 @@
+<div class="container" [formGroup]="calculadora">
+
+    <!-- Operando 1, Operador -->
+    <div>
+        <!-- Operando 1 -->
+        <mat-form-field color="primary" floatLabel="always" hintLabel="solo se admiten números" appearance="fill">
+            <mat-label>Operando 1</mat-label>
+            <input appOnlyNumbers matInput placeholder="ingrese un numero" formControlName="operando1" required>
+            <mat-error>Este campo es <strong>obligatorio</strong></mat-error>
+        </mat-form-field>
+
+        <!-- Operador -->
+        <mat-form-field appearance="fill" hintLabel="operando1 {{ calculadora.get('operador').value}} operando2"
+            class="operador">
+            <mat-label>Operador</mat-label>
+            <mat-select formControlName="operador" required>
+                <mat-option *ngFor="let op of operadores" [value]="op.id">
+                    {{op.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+    </div>
+
+    <!-- Operando 2 y botón -->
+    <div>
+
+        <!-- Operando 2 -->
+        <mat-form-field color="primary" floatLabel="always" hintLabel="solo se admiten números" appearance="fill">
+            <mat-label>Operando 2</mat-label>
+            <input appOnlyNumbers matInput placeholder="ingrese un numero" formControlName="operando2" required>
+        </mat-form-field>
+
+        <!-- Boton -->
+        <button class="boton" [disabled]="calculadora.invalid" mat-raised-button (click)="calcular()" color="warn">
+            Calcular
+        </button>
+    </div>
+            
+
+    <!-- Resultado -->
+    <mat-card class="example-card">
+        <mat-card-title>Resultado</mat-card-title>
+        <mat-card-content>
+            <p>
+                El resultado es: {{resultado}}
+            </p>
+        </mat-card-content>
+    </mat-card>
+
+</div>
